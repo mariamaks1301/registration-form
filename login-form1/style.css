@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:regular,500,600,700&display=swap');
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: url(./src/img/hero-bg.jpg) center / cover no-repeat;
+}
+
+/* Navigation bar */
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 .7rem;
+}
+
+.navbar{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 3rem;
+    padding: 1.4rem 0;
+}
+
+.navbar .menu{
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.navbar .logo{
+    display: flex;
+    column-gap: 10px;
+    text-decoration: none;
+}
+
+.navbar .logo h2{
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 600;
+   
+}
+
+.navbar .links{
+    display: flex;
+    column-gap: 35px;
+    list-style-type: none;
+    
+}
+
+.navbar .links .close-menu{
+    display: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5rem;
+
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.navbar .links a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    transition: .3s ease;
+
+}
+
+.navbar .links a:hover{
+    color: #19e8ff;
+    transition: .3s ease;
+}
+
+.navbar .login-btn{
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #275360;
+    background: #fff;
+}
+
+
+/* Popup form */
+
+.blur-bg-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.show-popup .blur-bg-overlay{
+    opacity: 1;
+    pointer-events: auto;
+    transition: .3s ease;
+
+}
+
+.form-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 2px solid #fff;
+    max-width: 720px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+}
+
+.show-popup .form-popup{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform .3s ease, opacity .1s;
+}
+
+.form-popup .close-btn{
+    border: none;
+    background: transparent;
+    outline: none;
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    cursor: pointer;
+
+}
+
+.form-popup .form-box{
+    display: flex;
+}
+
+.form-box .form-details{
+    max-width: 330px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.login .form-details{
+    background: url("src/img/login-img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.signup .form-details{
+    background: url("src/img/signup-img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+
+.form-box .form-details p{
+    text-align: center;
+}
+
+.form-box h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-box .form-content{
+    width: 100%;
+    padding: 35px;
+}
+
+form .input-field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid #757575;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    
+}
+
+form .input-field input:focus{
+    border-color: #00bcd4;
+}
+
+form .input-field input:is(:focus, :valid){
+    padding: 16px 15px 0;
+}
+
+form .input-field label{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #717171;
+    pointer-events: none;
+    transition: .2s ease;
+}
+
+
+.input-field input:is(:focus, :valid) ~ label{
+    font-size: 0.75rem;
+    color: #00bcd4;
+    transform: translateY(-120%);
+    transition: .2s ease;
+
+}
+
+.form-box a{
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-box a:hover{
+    text-decoration: underline;
+}
+
+.form-box :where(.forgot-password, .policy-text) {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+form button{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    margin: 24px 0;
+    color: #fff;
+    background: #00bcd4;
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+form button:hover{
+    background: #19e8ff;
+    transition: .3s ease;
+
+}
+
+
+.form-box .bottom-link{
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login{
+    display: none;
+}
+
+.form-popup.show-signup .signup{
+    display: flex;
+}
+
+.signup .policy-text{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.signup .policy-text input{
+    width: 14px;
+    height: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 950px){
+    .navbar{
+        padding: 1rem .5rem;
+    }
+    .navbar .menu{
+        display: block;
+    }
+
+    .navbar .logo img{
+        display: none;
+    }
+    .navbar .logo h2{
+        font-size: 1.4rem;
+        margin-left: 60px;
+    }
+
+    .navbar .links{
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        padding-top: 60px;
+        background: #fff; 
+
+        display: block;
+        text-align: center;
+        transition: .7s ease;
+    }
+    .navbar .links .close-menu{
+        display: block;
+    }
+    .navbar.open-menu .links{
+        left: 0;
+    }
+
+    .navbar .links a{
+        color: #000;
+        display: inline-flex;
+        margin-bottom: 20px;
+    }
+
+    .navbar .login-btn{
+        font-size: .8rem;
+        padding: 8px 16px
+    }
+
+
+
+}
+
+@media (max-width: 760px){
+    .form-popup{
+        width: 95%;
+    }
+    .form-box .form-details{
+        display: none;
+    }
+
+    .form-box .form-content{
+        padding: 30px 20px;
+    }
+}
+
+
